@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css">
+    <link rel="stylesheet" href="./static/css/form.css">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/4c124acc27.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="./static/js/form.js"></script>
+
+    <style>
+        .selecting {
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        select {
+            border: none;
+            padding: 9px 12px;
+            border-radius: 25px;
+        }
+
+        select:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <img src="./logo.jpeg" style="
+        height: 66px; border-radius: 14px;" alt="" srcset="">
+
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <h1 class="text-white" style="
+            margin: auto;">Sypram Technologies Pvt.Ltd.</h1>
+
+
+            <!-- <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home
+
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Fill Form</a>
+                    <span class="sr-only">(current)</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Check Status</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FAQ</a>
+                </li>
+            </ul> -->
+
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Form -->
+    <div class="container mt-5">
+        <form action="/submit-form" method="post">
+            <h2 class="text-center">Leave Application Form</h2>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Name of the Employee</label>
+                        <input type="text" class="form-control" placeholder="" name="empName">
+                    </div>
+                </div>
+                <!--  col-md-6   -->
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Employee Code</label>
+                        <input type="text" class="form-control" placeholder="" name="empCode">
+                    </div>
+                </div>
+                <!--  col-md-6   -->
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" class="form-control" placeholder="" name="deptName">
+                    </div>
+
+
+                </div>
+                <!--  col-md-6   -->
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label>Designation</label>
+                        <input type="text" class="form-control" name="designation" placeholder="">
+                    </div>
+                </div>
+                <!--  col-md-6   -->
+            </div>
+            <!--  row   -->
+
+
+            <div class="row" style="padding-top: 10px">
+
+
+                <span class="" style="padding-top: 15px; padding-left: 15px">Period of Leave</span>
+                <div class="col-md-5" style="padding-right: 20px">
+                    <div class="form-group">
+                        <div class='input-group date' id='datepicker' data-date-format="dd-mm-yyyy">
+                            <input type='date' id="startDate" class="fa fa-calendar-alt ml-4 mt-3" name="startDate"
+                                id="startDate" />
+                            <span class="input-group-addon">
+                                <!-- <span class="fa fa-calendar-alt fa-2x"></span> -->
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <span class="" style="padding-top: 10px;padding-right: 20px">to</span>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <div class='input-group date' id='datepicker1' data-date-format="dd-mm-yyyy">
+                            <input type='date' id="endDate" class="fa fa-calendar-alt ml-4 mt-2" name="endDate" />
+                            <span class="input-group-addon">
+                                <!-- <i class="fa fa-calendar-alt fa-2x"></i> -->
+                            </span>
+                        </div>
+                    </div><br>
+                </div>
+                <h5 class="ml-3 mt-2" id="result"></h5>
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="row" style="padding-top: 30px">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="selecting">
+                                <label for="type_leave">Types of Leave Applied for :</label> &nbsp&nbsp
+                                <select name="type_leave" id="type_leave">
+                                    <option value="Comp_Off" selected>Comp Off</option>
+                                    <option value="Casual_Leave">Casual Leave</option>
+                                    <option value="Privileged_Leave">Privileged Leave</option>
+                                    <option value="Sick_Leave">Sick Leave</option>
+                                    <option value="Short_Leave">Short Leave</option>
+                                    <option value="Leave_Without_Pay">Leave Without Pay</option>
+                                </select>
+                            </div>
+                        </div>
+    
+    
+                    <!--  col-md-6   -->
+    
+                    <!--  col-md-6   -->
+                </div>
+                <!--  col-md-6   -->
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label>Reason for Leave</label>
+                        <input type="text" class="form-control" id="reason" placeholder="" name="purpose">
+                    </div>
+                </div>
+                <!--  col-md-6   -->
+            </div>
+            <!--  row   -->
+
+
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Mobile No.</label>
+                        <input type="tel" class="form-control" placeholder="" name="mobile">
+                    </div>
+
+
+                </div>
+                <!--  col-md-6   -->
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="">
+                    </div>
+                </div>
+                <!--  col-md-6   -->
+            </div>
+            <!--  row   -->
+
+            <div class="row">
+
+                <!--  col-md-6   -->
+            </div>
+            <!--  row   -->
+
+
+
+
+            <div style="padding-top: 20px">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" style="
+                display: block;
+                margin: auto;
+                width: 124px;
+            ">Submit</button>
+            </div>
+            <div></div>
+        </form>
+    </div>
+    <!-- End Form -->
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <!-- <i class="fa fa-envelope fa-2x mr-3" aria-hidden="true"></i>
+        <i class="fa fa-facebook-official fa-2x mr-3" aria-hidden="false"></i>
+        <i class="fa fa-twitter fa-2x " aria-hidden="true"></i> -->
+        <p class="mb-1 mt-2">&copy; Copyright Sypram Technologies Pvt.Ltd.</p>
+    </footer>
+    <script>
+        function countDays() {
+            var startDateInput = document.getElementById('startDate');
+            var endDateInput = document.getElementById('endDate');
+            var resultElement = document.getElementById('result');
+
+            var startDate = new Date(startDateInput.value);
+            var endDate = new Date(endDateInput.value);
+
+            if (startDate > endDate) {
+                resultElement.textContent = 'End date must be greater than start date.';
+                return;
+            }
+
+            var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+            var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1;
+
+            resultElement.textContent = 'Number of the Days: : ' + daysDiff;
+        }
+
+        var startDateInput = document.getElementById('startDate');
+        var endDateInput = document.getElementById('endDate');
+
+        startDateInput.addEventListener('change', countDays);
+        endDateInput.addEventListener('change', countDays);
+    </script>
+</body>
